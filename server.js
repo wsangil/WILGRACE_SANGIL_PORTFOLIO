@@ -19,7 +19,7 @@ app.get('/api/projects', (req, res) => {
             id: 1, 
             name: "BOOKITBUDDY", 
             tech: "Python, Database", 
-            image: "images/bookitbuddy.png" // Put this file in your public folder
+            image: "images/bookitbuddy.PNG" // Put this file in your public folder
         },
         { 
             id: 2, 
