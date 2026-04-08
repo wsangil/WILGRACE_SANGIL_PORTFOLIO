@@ -119,8 +119,11 @@ section {
         flex-direction: column;
         text-align: center;
     }
-    .hero-image {
-        width: 250px;
-        height: 250px;
-    }
+    .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    /* This prevents the photo from stretching */
+    object-position: center; /* Keeps your face centered */
+    display: block;
+}
 }
