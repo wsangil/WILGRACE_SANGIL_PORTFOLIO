@@ -10,8 +10,13 @@ async function loadProjects() {
             const card = document.createElement('div');
             card.className = 'card';
             card.innerHTML = `
+            <div class="card-img">
+                <img src="${project.image}" alt="${project.name}">
+            </div>
+            <div class="card-info">
                 <h3>${project.name}</h3>
                 <p>${project.tech}</p>
+            </div>
             `;
             grid.appendChild(card);
         });
