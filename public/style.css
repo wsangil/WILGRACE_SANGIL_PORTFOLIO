@@ -50,3 +50,77 @@ section {
 }
 
 .card:hover { transform: translateY(-5px); }
+
+/* Hero Container Layout */
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+/* Circular Image Styling */
+.hero-image {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background: #1e293b; /* Dark background behind image */
+    border-radius: 50%;
+    border: 5px solid #38bdf8; /* Your blue color scheme */
+    overflow: hidden;
+    box-shadow: 0 0 50px rgba(56, 189, 248, 0.2); /* Subtle blue glow */
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Content Styling */
+.hero-content h3 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    line-height: 1.2;
+    margin: 10px 0;
+}
+
+.hero-content p {
+    max-width: 500px;
+    color: #94a3b8;
+    margin-bottom: 30px;
+}
+
+/* "Hire Me" Button */
+.btn {
+    padding: 12px 30px;
+    background: transparent;
+    border: 2px solid #38bdf8;
+    color: #38bdf8;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #38bdf8;
+    color: #0f172a;
+    box-shadow: 0 0 20px #38bdf8;
+}
+
+/* Responsive fix for Mobile */
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-image {
+        width: 250px;
+        height: 250px;
+    }
+}
