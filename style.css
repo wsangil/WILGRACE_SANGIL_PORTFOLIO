@@ -205,3 +205,113 @@ section {
     margin-bottom: 10px;
     border-radius: 8px;
 }
+
+/* =========================================
+   New Contact Section Styling
+   ========================================= */
+
+#contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 100px 10%;
+}
+
+.contact-header {
+    max-width: 600px;
+    margin-bottom: 60px;
+}
+
+.contact-header h2 {
+    font-size: 3rem;
+    color: #f8fafc; /* existing color scheme */
+    margin-bottom: 10px;
+}
+
+.contact-header p {
+    color: #94a3b8; /* existing color scheme */
+    font-size: 1rem;
+}
+
+/* The 3-column Grid */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    width: 100%;
+    max-width: 1100px;
+}
+
+/* The Individual Column Item */
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-item h3 {
+    margin: 20px 0 10px 0;
+    color: #f8fafc;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-item p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+/* General Styling for links within the contact section */
+.contact-link {
+    display: block;
+    margin-bottom: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+/* Icon styling */
+.icon-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: transparent; /* Changed from white to transparent */
+    border: 3px solid #38bdf8; /* Uses your scheme's highlight color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #38bdf8; /* Icon itself is highlight color */
+    transition: 0.3s ease;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+}
+
+/* Subtle hover effect on the icon */
+.contact-item:hover .icon-circle {
+    transform: translateY(-5px);
+    background-color: #38bdf8; /* Fills in on hover */
+    color: #0f172a; /* Icon turns dark on highlight background */
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.5);
+}
+
+.icon-circle svg {
+    width: 45px;
+    height: 45px;
+}
+
+/* Mobile Responsive adjustment */
+@media (max-width: 768px) {
+    #contact {
+        padding: 60px 5%;
+    }
+    .contact-header h2 {
+        font-size: 2.5rem;
+    }
+}
