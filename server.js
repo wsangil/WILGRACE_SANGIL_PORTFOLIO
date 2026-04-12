@@ -3,23 +3,22 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware to serve your static files (CSS, JS, Images)
-app.use(express.static('public'));
+// FIX 1: Serve static files from the root folder (.) instead of 'public'
+app.use(express.static(__dirname)); 
 app.use(express.json());
 
-// Route for the homepage
+// FIX 2: Point to index.html in the root
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// A sample API route for your projects (mimicking your VibeCheck style)
 app.get('/api/projects', (req, res) => {
     const projects = [
         { 
             id: 1, 
             name: "BOOKITBUDDY", 
             tech: "Python, Database", 
-            image: "images/bookitbuddy.PNG" // Put this file in your public folder
+            image: "images/bookitbuddy.PNG" 
         },
         { 
             id: 2, 
