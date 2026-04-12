@@ -320,13 +320,14 @@ section {
 .modal {
     display: none; 
     position: fixed; 
-    z-index: 1000; 
+    z-index: 9999; 
     left: 0;
     top: 0;
     width: 100%; 
     height: 100%; 
-    background-color: rgba(0,0,0,0.9); 
-    overflow-y: auto; /* FIX: This allows the background to scroll if content is long */
+    background-color: rgba(15, 23, 42, 0.95); /* Matches your body color */
+    overflow-y: auto; /* This is the secret for scrolling */
+    padding-bottom: 50px; /* Space at the bottom so the last image isn't cramped */
 }
 
 /* Modal Content Box */
@@ -349,5 +350,12 @@ section {
     font-size: 35px;
     font-weight: bold;
     cursor: pointer;
-    z-index: 1001; /* FIX: Ensures it stays above the images */
+    z-index: 10000; /* Increased significantly to stay above images */
+    background: rgba(30, 41, 59, 0.8); /* Optional: adds a tiny background so it's visible over bright images */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

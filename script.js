@@ -70,3 +70,14 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 };
+
+// This ensures the button is found only after the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    const closeBtn = document.querySelector(".close");
+    if(closeBtn) {
+        closeBtn.onclick = function() {
+            document.getElementById("projectModal").style.display = "none";
+            document.body.style.overflow = "auto"; // Re-enable background scrolling
+        };
+    }
+});
