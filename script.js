@@ -8,7 +8,9 @@ async function loadProjects() {
         { name: "SOLVEIT", 
             image:["images/solveit.png", "images/solveit2.png", "images/solveit3.png", "images/solveit4.png", "images/solveit5.png", "images/solveit6.png"],
             description: "A problem-solving application for numerical methods and algorithms developed using java language"},
-        { name: "PEENOISE RACE", tech: "html, css, js", image: "images/peenoise.png" }
+        { name: "PEENOISE RACE", 
+            image: ["images/peenoise.png", "images/peenoise2.png", "images/peenoise3.png", "images/peenoise4.png", "images/peenoise5.png", "images/peenoise6.png","images/peenoise7.png" ], 
+            description: "A fun and engaging type racing game developed using HTML, CSS, and JavaScript."}
     ];
 
     const grid = document.querySelector('.project-grid');
