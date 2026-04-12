@@ -23,27 +23,14 @@ async function loadProjects() {
     const grid = document.querySelector('.project-grid');
     grid.innerHTML = ''; 
 
-    projects.forEach(project => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        
-        // FIX 1: Use project.image[0] to show the FIRST image as the thumbnail
-        card.innerHTML = `
-            <div class="card-img">
-                <img src="${project.image[0]}" alt="${project.name}">
-            </div>
-            <div class="card-info">
-                <h3>${project.name}</h3>
-                <p>${project.tech}</p> 
-            </div>
-        `;
-
-        card.onclick = () => {
-            openModal(project);
-        };
-
-        grid.appendChild(card);
-    });
+    project.image.forEach(src => {
+    const img = document.createElement('img');
+    img.src = src;
+    img.style.width = "100%";
+    img.style.marginBottom = "20px"; // Space between screenshots
+    img.style.borderRadius = "8px";
+    gallery.appendChild(img);
+});
 }
 
 // FIX 2: Move openModal OUTSIDE loadProjects so it's globally accessible
@@ -68,3 +55,18 @@ function openModal(project) {
 }
 
 window.onload = loadProjects;
+
+// Close button logic
+document.querySelector(".close").onclick = function() {
+    document.getElementById("projectModal").style.display = "none";
+    // Optional: Reset scroll position to top when closing
+    document.querySelector(".modal").scrollTop = 0;
+};
+
+// Close when clicking outside the box
+window.onclick = function(event) {
+    const modal = document.getElementById("projectModal");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+};

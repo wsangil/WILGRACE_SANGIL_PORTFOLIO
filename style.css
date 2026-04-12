@@ -315,3 +315,39 @@ section {
         font-size: 2.5rem;
     }
 }
+
+/* The Modal background */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.9); 
+    overflow-y: auto; /* FIX: This allows the background to scroll if content is long */
+}
+
+/* Modal Content Box */
+.modal-content {
+    background-color: #1e293b;
+    margin: 50px auto; /* Gives some space at the top and bottom */
+    padding: 40px 20px 20px 20px; /* Top padding increased to make room for X */
+    border: 1px solid #38bdf8;
+    width: 90%; 
+    max-width: 700px;
+    border-radius: 15px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    color: #94a3b8;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001; /* FIX: Ensures it stays above the images */
+}
