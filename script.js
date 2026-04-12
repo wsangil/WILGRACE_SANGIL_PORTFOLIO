@@ -1,16 +1,23 @@
 async function loadProjects() {
-    // Hardcode the data so it works on GitHub Pages without a backend
     const projects = [
-        { name: "BOOKITBUDDY", 
-        image: ["images/bib.png", "images/bib2.png", "images/bib3.png", "images/bib4.png", "images/bib5.png", "images/bib6.png", "images/bib7.png", "images/bib8.png", "images/bib9.png"],
-        description: "A BulSU E-Library Reservation System. Developed using Python and a database, this project allows users to reserve function halls, manage their reservations, and access library resources efficiently."
+        { 
+            name: "BOOKITBUDDY", 
+            tech: "Python, Database", // Added this back so it's not 'undefined'
+            image: ["images/bib.png", "images/bib2.png", "images/bib3.png", "images/bib4.png", "images/bib5.png", "images/bib6.png", "images/bib7.png", "images/bib8.png", "images/bib9.png"],
+            description: "A BulSU E-Library Reservation System. Developed using Python and a database, this project allows users to reserve function halls, manage their reservations, and access library resources efficiently."
         },
-        { name: "SOLVEIT", 
-            image:["images/solveit.png", "images/solveit2.png", "images/solveit3.png", "images/solveit4.png", "images/solveit5.png", "images/solveit6.png"],
-            description: "A problem-solving application for numerical methods and algorithms developed using java language"},
-        { name: "PEENOISE RACE", 
+        { 
+            name: "SOLVEIT", 
+            tech: "Java, Algorithms",
+            image: ["images/solveit.png", "images/solveit2.png", "images/solveit3.png", "images/solveit4.png", "images/solveit5.png", "images/solveit6.png"],
+            description: "A problem-solving application for numerical methods and algorithms developed using Java language."
+        },
+        { 
+            name: "PEENOISE RACE", 
+            tech: "HTML, CSS, JS",
             image: ["images/peenoise.png", "images/peenoise2.png", "images/peenoise3.png", "images/peenoise4.png", "images/peenoise5.png", "images/peenoise6.png","images/peenoise7.png" ], 
-            description: "A fun and engaging type racing game developed using HTML, CSS, and JavaScript."}
+            description: "A fun and engaging type racing game developed using HTML, CSS, and JavaScript."
+        }
     ];
 
     const grid = document.querySelector('.project-grid');
@@ -19,16 +26,45 @@ async function loadProjects() {
     projects.forEach(project => {
         const card = document.createElement('div');
         card.className = 'card';
+        
+        // FIX 1: Use project.image[0] to show the FIRST image as the thumbnail
         card.innerHTML = `
             <div class="card-img">
-                <img src="${project.image}" alt="${project.name}">
+                <img src="${project.image[0]}" alt="${project.name}">
             </div>
             <div class="card-info">
                 <h3>${project.name}</h3>
-                <p>${project.tech}</p>
+                <p>${project.tech}</p> 
             </div>
         `;
+
+        card.onclick = () => {
+            openModal(project);
+        };
+
         grid.appendChild(card);
     });
 }
+
+// FIX 2: Move openModal OUTSIDE loadProjects so it's globally accessible
+function openModal(project) {
+    const modal = document.getElementById("projectModal");
+    document.getElementById("modalTitle").innerText = project.name;
+    document.getElementById("modalDesc").innerText = project.description || "Project details coming soon!";
+    
+    const gallery = document.getElementById("modalGallery");
+    gallery.innerHTML = ''; 
+    
+    // FIX 3: Change 'screenshots' to 'image' to match your data above
+    project.image.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.style.width = "100%"; // Basic styling to keep images uniform
+        img.style.marginBottom = "10px";
+        gallery.appendChild(img);
+    });
+
+    modal.style.display = "block";
+}
+
 window.onload = loadProjects;
