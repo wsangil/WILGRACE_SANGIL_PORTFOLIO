@@ -1,5 +1,5 @@
 /* =========================================
-   Basic Reset & Global Styles
+   GLOBAL STYLES & RESET
    ========================================= */
 * {
     margin: 0;
@@ -8,10 +8,15 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #0f172a;
     color: #f8fafc;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 section {
@@ -19,20 +24,25 @@ section {
     min-height: 80vh;
 }
 
-.highlight { color: #38bdf8; }
+.highlight { 
+    color: #38bdf8; 
+}
 
 /* =========================================
-   Navigation Header
+   NAVIGATION 
    ========================================= */
 nav {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 0 5%;
     height: 100px;
-    background-color: #0f172a;
+    background-color: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
     z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .logo {
@@ -46,7 +56,7 @@ nav {
     flex: 2;
     display: flex;
     justify-content: center;
-    gap: 80px;
+    gap: 80px; /* Wide architectural spacing */
 }
 
 .nav-center a {
@@ -58,14 +68,13 @@ nav {
     font-weight: 500;
     letter-spacing: 4px;
     transition: 0.3s ease;
-    white-space: nowrap;
 }
 
 .nav-center a:hover {
     color: #38bdf8;
 }
 
-/* Sliding Underline Logic */
+/* Sliding Underline */
 .nav-center a::after {
     content: '';
     position: absolute;
@@ -105,7 +114,7 @@ nav {
 }
 
 /* =========================================
-   Home Section
+   HOME SECTION
    ========================================= */
 #home {
     display: flex;
@@ -125,30 +134,31 @@ nav {
 
 .hero-text {
     flex: 1;
-    text-align: left;
+}
+
+.hero-text h3 {
+    font-size: 1.8rem;
+    font-weight: 500;
 }
 
 .hero-text h1 {
     font-size: 4.5rem;
     margin: 10px 0;
-}
-
-.hero-text h3 {
-    font-size: 1.8rem;
+    line-height: 1.1;
 }
 
 .hero-text p {
-    text-align: justify;
-    text-justify: inter-word; 
-    line-height: 1.6;        
-    margin-bottom: 25px;   
-    max-width: 550px;        
+    font-size: 1.1rem;
+    color: #94a3b8;
+    margin-bottom: 30px;
+    max-width: 550px;
 }
+
 .hero-image {
     width: 450px;
     height: 450px;
     border-radius: 50%;
-    border: 8px solid #38bdf8; 
+    border: 8px solid #38bdf8;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -164,122 +174,113 @@ nav {
 
 .btn {
     display: inline-block;
-    margin-top: 20px;
-    padding: 12px 28px;
+    padding: 12px 35px;
     background: transparent;
     color: #38bdf8;
     border: 2px solid #38bdf8;
-    border-radius: 40px;    
-    font-size: 1rem;
+    border-radius: 40px;
     font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;  
+    text-decoration: none;
+    transition: 0.3s ease;
 }
 
 .btn:hover {
     background: #38bdf8;
-    color: #0f172a;         
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
+    color: #0f172a;
     transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3);
 }
 
 /* =========================================
-   Project Grid & Cards
+   PROJECT GRID 
    ========================================= */
-
 .project-grid {
     display: grid;
-    /* This forces exactly 3 columns on desktop */
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 40px; /* Space between the boxes */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
     margin-top: 50px;
     width: 100%;
-    max-width: 1200px; /* Keeps the grid from becoming too wide */
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .card {
     background: #1e293b;
-    border-radius: 20px; /* More rounded corners to match your diagram */
+    border-radius: 20px;
     overflow: hidden;
     border: 1px solid #334155;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: 0.3s ease;
     cursor: pointer;
-    aspect-ratio: 4 / 3; /* This keeps the boxes a consistent rectangular shape */
+    aspect-ratio: 4 / 3;
     display: flex;
     flex-direction: column;
 }
 
-/* Adjust card image to fill the top half properly */
+.card:hover {
+    transform: translateY(-10px);
+    border-color: #38bdf8;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
 .card-img {
     width: 100%;
-    height: 60%; /* Occupies top part of the card */
+    height: 60%;
     background: #0f172a;
+    overflow: hidden;
 }
 
 .card-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: top;
 }
 
 .card-info {
     padding: 20px;
+    text-align: center;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: center; /* Centers project names like a professional gallery */
 }
 
-/* Responsive adjustment so it doesn't break on small screens */
-@media (max-width: 1024px) {
-    .project-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
-    }
+.card-info h3 {
+    color: #38bdf8;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
 }
 
-@media (max-width: 600px) {
-    .project-grid {
-        grid-template-columns: 1fr; /* 1 column for phones */
-    }
+.card-info p {
+    color: #94a3b8;
+    font-size: 0.85rem;
 }
 
 /* =========================================
-   Contact Section
+   CONTACT SECTION
    ========================================= */
 #contact {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     text-align: center;
-    padding: 100px 10%;
-}
-
-.contact-header {
-    max-width: 600px;
-    margin-bottom: 60px;
 }
 
 .contact-header h2 {
     font-size: 3rem;
-    color: #f8fafc;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .contact-header p {
     color: #94a3b8;
-    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto 60px;
 }
 
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 40px;
-    width: 100%;
     max-width: 1100px;
+    margin: 0 auto;
 }
 
 .contact-item {
@@ -288,122 +289,90 @@ nav {
     align-items: center;
 }
 
-.contact-item h3 {
-    margin: 20px 0 10px 0;
-    color: #f8fafc;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.contact-item p {
-    color: #94a3b8;
-    font-size: 0.95rem;
-    margin-bottom: 5px;
-}
-
-.contact-link {
-    display: block;
-    margin-bottom: 5px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
-    color: #38bdf8;
-}
-
-.contact-link:hover {
-    text-decoration: underline;
-    opacity: 0.8;
-}
-
 .icon-circle {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    background-color: transparent;
-    border: 3px solid #38bdf8;
+    border: 2px solid #38bdf8;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #38bdf8;
-    transition: 0.3s ease;
-    box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+    margin-bottom: 20px;
+    transition: 0.3s;
 }
 
 .contact-item:hover .icon-circle {
-    transform: translateY(-5px);
-    background-color: #38bdf8;
+    background: #38bdf8;
     color: #0f172a;
-    box-shadow: 0 0 30px rgba(56, 189, 248, 0.5);
+    transform: translateY(-5px);
 }
 
 .icon-circle svg {
-    width: 45px;
-    height: 45px;
+    width: 35px;
+    height: 35px;
+}
+
+.contact-link {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
 }
 
 /* =========================================
-   Modals
+   MODAL STYLES
    ========================================= */
 .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 9999; 
+    display: none;
+    position: fixed;
+    z-index: 2000;
     left: 0;
     top: 0;
-    width: 100%; 
-    height: 100%; 
-    background-color: rgba(15, 23, 42, 0.95);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.98);
     overflow-y: auto;
-    padding-bottom: 50px;
 }
 
 .modal-content {
     background-color: #1e293b;
     margin: 50px auto;
-    padding: 40px 20px 20px 20px;
+    padding: 40px;
     border: 1px solid #38bdf8;
-    width: 90%; 
-    max-width: 700px;
-    border-radius: 15px;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 20px;
     position: relative;
 }
 
 .close {
     position: absolute;
-    right: 20px;
-    top: 15px;
+    right: 25px;
+    top: 20px;
     color: #94a3b8;
-    font-size: 35px;
-    font-weight: bold;
+    font-size: 30px;
     cursor: pointer;
-    z-index: 10000;
-    background: rgba(30, 41, 59, 0.8);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    width: 45px;
+    height: 45px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.close:hover {
-    color: #38bdf8;
+    border-radius: 50%;
 }
 
 .gallery img {
     width: 100%;
-    margin-bottom: 10px;
-    border-radius: 8px;
+    margin-bottom: 15px;
+    border-radius: 10px;
 }
 
 /* =========================================
-   Responsive Design
+   RESPONSIVE DESIGN
    ========================================= */
-@media (max-width: 900px) {
-    .hero-wrapper {
-        flex-direction: column;
-        text-align: center;
+@media (max-width: 1024px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -411,23 +380,29 @@ nav {
     nav {
         height: auto;
         flex-direction: column;
-        padding: 20px 5%;
+        padding: 20px;
         gap: 15px;
     }
-    
+
     .nav-center {
         gap: 30px;
     }
 
-    #contact {
-        padding: 60px 5%;
+    .hero-wrapper {
+        flex-direction: column;
+        text-align: center;
     }
 
-    .contact-header h2 {
-        font-size: 2.5rem;
+    .hero-image {
+        width: 300px;
+        height: 300px;
     }
 
     .hero-text h1 {
         font-size: 3rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
     }
 }
