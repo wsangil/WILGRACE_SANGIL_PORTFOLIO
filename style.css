@@ -165,9 +165,12 @@ section {
         flex-direction: column;
         text-align: center;
     }
-    .hero-text {
-        text-align: center;
-    }
+    .hero-text p {
+    text-align: justify;
+    text-justify: inter-word; /* This ensures even spacing between words */
+    line-height: 1.6;         /* Optional: Improves readability when justified */
+    margin-bottom: 25px;      /* Gives the "Hire me" button some breathing room */
+}
 }
 
 .btn {
