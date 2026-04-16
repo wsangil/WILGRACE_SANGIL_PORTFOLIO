@@ -8,7 +8,7 @@ const projects = [
     },
     { 
         name: "SOLVEIT", 
-        tech: "Java, Algorithms",
+        tech: "Java, Data Structures and Algorithms",
         image: ["images/solveit.png", "images/solveit2.png", "images/solveit3.png", "images/solveit4.png", "images/solveit5.png", "images/solveit6.png"],
         description: "A problem-solving application for numerical methods and algorithms developed using Java language."
     },
