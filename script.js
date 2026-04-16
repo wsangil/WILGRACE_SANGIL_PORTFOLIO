@@ -17,7 +17,13 @@ const projects = [
         tech: "HTML, CSS, JS",
         image: ["images/peenoise.png", "images/peenoise2.png", "images/peenoise3.png", "images/peenoise4.png", "images/peenoise5.png", "images/peenoise6.png","images/peenoise7.png" ], 
         description: "A fun and engaging type racing game developed using HTML, CSS, and JavaScript."
-    }
+    },
+    { 
+        name: "DRAWMANCE", 
+        tech: "HTML, CSS, JS, PHP, XAMPP",
+        image: ["images/drawmance.png", "images/drawmance2.png", "images/drawmance3.png"], 
+        description: "A web-based drawing application developed using HTML, CSS, JavaScript, PHP, and XAMPP. It allows users to create and draw on a canvas at the same time, fostering creativity and collaboration. Users can also save their drawings as jpg,png and pdf files, making it a versatile tool for artists and designers."
+    },
 ];
 
 function loadProjects() {
