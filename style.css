@@ -187,31 +187,35 @@ nav {
 /* =========================================
    Project Grid & Cards
    ========================================= */
+
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+    /* This forces exactly 3 columns on desktop */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 40px; /* Space between the boxes */
+    margin-top: 50px;
+    width: 100%;
+    max-width: 1200px; /* Keeps the grid from becoming too wide */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card {
     background: #1e293b;
-    border-radius: 15px;
+    border-radius: 20px; /* More rounded corners to match your diagram */
     overflow: hidden;
     border: 1px solid #334155;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    aspect-ratio: 4 / 3; /* This keeps the boxes a consistent rectangular shape */
+    display: flex;
+    flex-direction: column;
 }
 
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
-    border-color: #38bdf8;
-}
-
+/* Adjust card image to fill the top half properly */
 .card-img {
     width: 100%;
-    height: 200px;
+    height: 60%; /* Occupies top part of the card */
     background: #0f172a;
 }
 
@@ -223,16 +227,24 @@ nav {
 
 .card-info {
     padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center; /* Centers project names like a professional gallery */
 }
 
-.card-info h3 {
-    color: #38bdf8;
-    margin-bottom: 10px;
+/* Responsive adjustment so it doesn't break on small screens */
+@media (max-width: 1024px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+    }
 }
 
-.card-info p {
-    color: #94a3b8;
-    font-size: 0.9rem;
+@media (max-width: 600px) {
+    .project-grid {
+        grid-template-columns: 1fr; /* 1 column for phones */
+    }
 }
 
 /* =========================================
