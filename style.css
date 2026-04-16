@@ -397,26 +397,26 @@ section {
     letter-spacing: 2px;
 }
 
-/* 2. THE CENTER AREA: No lists, just centered links */
 .nav-center {
-    flex: 2; /* Takes more space to allow wide gaps */
+    flex: 2;                  /* Keeps it centered between logo and button */
     display: flex;
-    justify-content: center;
-    gap: 100px; /* Adjust this to make the gap wider or narrower */
+    justify-content: center;  /* Centers the group itself */
+    gap: 80px;               /* INCREASE THIS: This is the horizontal space between links */
 }
 
 .nav-center a {
     text-decoration: none;
-    color: #94a3b8;
+    color: #f8fafc;           /* Matches your text color */
     text-transform: uppercase;
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 4px; /* High letter spacing for that architect look */
-    transition: color 0.3s ease;
+    font-size: 0.85rem;       /* Small font + big spacing = professional look */
+    font-weight: 500;
+    letter-spacing: 4px;      /* MAXIMIZE SPACE: Spreads out the letters in each word */
+    transition: 0.3s ease;
+    white-space: nowrap;      /* Prevents links from ever wrapping to a new line */
 }
 
 .nav-center a:hover {
-    color: #38bdf8;
+    color: #38bdf8;           /* Your signature blue */
 }
 
 /* 3. Right side "pane" to balance the logo */
