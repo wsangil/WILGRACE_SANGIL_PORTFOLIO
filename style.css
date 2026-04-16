@@ -156,6 +156,7 @@ section {
 }
 
 .hero-text h3 {
+    text-align: justify;
     font-size: 1.8rem;
 }
 
