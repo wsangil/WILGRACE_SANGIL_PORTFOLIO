@@ -15,17 +15,49 @@ body {
 nav {
     display: flex;
     justify-content: space-between;
-    padding: 2rem 10%;
+    align-items: center; /* Vertically centers the logo and links */
+    padding: 1.5rem 10%;
     position: sticky;
     top: 0;
-    background: rgba(15, 23, 42, 0.9);
-    backdrop-filter: blur(10px);
+    z-index: 1000;
+    background: rgba(15, 23, 42, 0.85); /* Semi-transparent */
+    backdrop-filter: blur(12px); /* The "glass" effect */
+    border-bottom: 1px solid rgba(56, 189, 248, 0.1); /* Subtle blue line */
 }
 
-nav ul { display: flex; list-style: none; }
-nav ul li { margin-left: 20px; }
-nav a { color: #94a3b8; text-decoration: none; transition: 0.3s; }
-nav a:hover { color: #38bdf8; }
+nav ul li {
+    margin-left: 35px;
+    position: relative;
+}
+
+nav a {
+    color: #94a3b8;
+    font-weight: 500;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+/* Hover Effect: Text turns blue */
+nav a:hover {
+    color: #38bdf8;
+}
+
+/* Sliding Underline Logic */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #38bdf8;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
 
 section {
     padding: 100px 10%;
@@ -358,4 +390,21 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #f8fafc;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.logo:hover {
+    color: #38bdf8;
+    text-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+}
+
+.active-link {
+    color: #38bdf8 !important;
 }
