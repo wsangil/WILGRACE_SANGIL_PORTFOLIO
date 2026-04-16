@@ -141,9 +141,9 @@ nav {
     text-align: justify;
     text-justify: inter-word; 
     line-height: 1.6;        
-    margin-bottom: 25px;      
+    margin-bottom: 25px;   
+    max-width: 550px;        
 }
-
 .hero-image {
     width: 450px;
     height: 450px;
