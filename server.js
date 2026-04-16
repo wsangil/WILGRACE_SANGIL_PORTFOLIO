@@ -30,6 +30,11 @@ app.get('/api/projects', (req, res) => {
         description: "A web-based drawing application developed using HTML, CSS, JavaScript, PHP, and XAMPP. It allows users to create and draw on a canvas at the same time, fostering creativity and collaboration. Users can also save their drawings as jpg,png and pdf files, making it a versatile tool for artists and designers."
         },
         { id: 5,
+        name: "PESOSENSE", 
+        image: ["images/ps.jpg", "images/ps2.jpg", "images/ps3.jpg","images/ps4.jpg","images/ps5.jpg"], 
+        description: "A mobile application developed using Python through Android Studio, with SQLite as the database. PesoSense helps users track their expenses, set budgets, and gain insights into their spending habits. The app features a user-friendly interface and real-time updates on financial data."
+        },
+        { id: 6,
         name: "AIRWEGO", 
         image: ["images/awg.jpg", "images/awg2.jpg", "images/awg3.jpg","images/awg4.jpg"], 
         description: "A mobile application developed using Flutter and Dart, with Firebase as the backend. AirWeGo allows users to search for flights, compare prices, and book tickets seamlessly. The app features a user-friendly interface and real-time updates on flight availability and pricing."
