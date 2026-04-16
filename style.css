@@ -15,10 +15,9 @@ body {
 nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 0 5%;
-    height: 90px;
-    background: #0f172a; /* Your dark theme */
+    height: 100px;
+    background-color: #0f172a;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -392,54 +391,48 @@ section {
 }
 
 .logo {
-    flex: 1; /* This is key */
+    flex: 1;
     font-size: 1.5rem;
     font-weight: 800;
+    letter-spacing: 2px;
 }
 
-/* DEAD CENTER NAVIGATION */
-.nav-links {
-    flex: 2; /* Takes up the middle area */
+/* 2. THE CENTER AREA: No lists, just centered links */
+.nav-center {
+    flex: 2; /* Takes more space to allow wide gaps */
     display: flex;
-    justify-content: center; /* Centers the list items */
-    gap: 80px; /* BIG spacing like your example: HOME      PROJECTS */
-    list-style: none;
+    justify-content: center;
+    gap: 100px; /* Adjust this to make the gap wider or narrower */
 }
 
-.nav-links a {
+.nav-center a {
     text-decoration: none;
     color: #94a3b8;
-    text-transform: uppercase; /* Match the Ararat style */
+    text-transform: uppercase;
     font-size: 0.85rem;
     font-weight: 600;
-    letter-spacing: 3px; /* Extra space between letters */
-    transition: 0.3s;
+    letter-spacing: 4px; /* High letter spacing for that architect look */
+    transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
+.nav-center a:hover {
     color: #38bdf8;
 }
 
-/* Balance the right side */
+/* 3. Right side "pane" to balance the logo */
 .nav-right {
-    flex: 1; /* Matches the logo weight to keep the middle perfectly centered */
+    flex: 1;
     display: flex;
     justify-content: flex-end;
 }
 
 .btn-sm {
-    padding: 10px 20px;
+    padding: 10px 22px;
     border: 1px solid #38bdf8;
     color: #38bdf8;
     text-decoration: none;
+    text-transform: uppercase;
     font-size: 0.7rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: 0.3s;
-}
-
-.btn-sm:hover {
-    background: #38bdf8;
-    color: #0f172a;
+    border-radius: 2px;
 }
